@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        </title>
+                        		    <style>  
+									 #l
+			  { background:url(img/ill.png); background-repeat:no-repeat;}
+			  #l:hover
+			  {  background:url(img/il.png); } 
+   #ac
+	  
+	  {
+		  
+		  background:url(img/i2.jpg); background-repeat:no-repeat;}
+		  #ac:hover
+		  { background:url(img/i4.png);
+		  }</style>
+          
+            <link rel="stylesheet" href="jquery.mobile-1.2.0.min.css"
+        />
+        	<link rel="stylesheet" href="css/jquery-mobile.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-mobile.js"></script>
+         <link rel="stylesheet" href="css/finder.css" />
+        <link rel="stylesheet" href="css/my.css" />
+       
+        <script src="js/my.js">
+        </script>
+    </head>
+    
+    <body>
+       <div data-role="page" >
+           <div data-role="header" style="background:url(img/i2.png); background-repeat:no-repeat;">
+               <a href="index.php" data-icon="back" rel="external" >Back</a>
+            <a href ="deconnexion2.php" rel="external"> Déconnexion </a>
+            <h1>LISTE DES SUJETS</h1>  
+ 	
+            </div>
+            <div data-role="content">
+
+<div >	
+				<ul data-role="listview" data-filter="true" data-filter-placeholder="Rechercher..." data-inset="true">
+            {foreach $return as $data} 
+				<li id="l"><a href="f_details.php?id={$data['idf']}" rel="external">
+				<p align="right">{$data['date_depot']}</p>
+                <h3>{$data['titre']}</h3>
+			</a></li>	
+            {/foreach}
+					
+</ul>
+<div data-role="collapsible" data-collapsed="true" data-theme="b">
+                        <h3 >
+                            Ajouter un sujet:
+                        </h3>
+<form method="post" id="foem" action="f_ajout.php">
+
+
+                <select name="section" id="section" data-mini="true" data-native-menu="false"  style="text-align: center; 									  				font-size:25px; color:white; font-family: times new roman,times;" data-theme="c">
+                            
+                        <option value="concours" name="concours">
+                            Concours
+                        </option>
+                        
+                         <option value="formations" name="formations">
+                            Formations
+                        </option>
+                         <option value="stages" name="stages">
+                            Stages
+                        </option>
+                         <option value="emplois" name="emplois">
+                            Emplois
+                        </option>
+                </select>
+                      
+                        
+                             <input name="titre" id="titre" placeholder="Titre" type="text" >
+                                <textarea id="sujet" name="sujet" placeholder="Sujet" ></textarea>
+							 </fieldset>
+                                <input type="submit" value="Ajouter" data-theme="b">
+</form>
+                        
+                    </div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+            
+              <div data-role="navbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="index.php" data-transition="fade" data-theme="" data-icon="home"  id="ac">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.php" data-rel="dialog" data-transition="fade" data-theme="" data-icon="custom"  id="ac">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.php" data-rel="dialog" data-transition="fade" data-theme="" data-icon="info"  id="ac">
+                            A propos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>       
+
+</html>

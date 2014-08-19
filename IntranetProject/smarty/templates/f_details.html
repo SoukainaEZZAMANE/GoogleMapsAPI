@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        </title>
+        <link rel="stylesheet" href="themes/theme.min.css" />
+           <link rel="stylesheet" href="themes/theme.css" />
+         <link rel="stylesheet" href="css/finder.css" />
+        <link rel="stylesheet" href="css/my.css" />
+   <style>  
+    #l
+			  { background:url(img/ill.png); background-repeat:no-repeat;}
+			  #l:hover
+			  {  background:url(img/il.png); }
+   #ac
+	  
+	  {
+		  
+		  background:url(img/i2.jpg); background-repeat:no-repeat;}
+		  #ac:hover
+		  { background:url(img/i4.png);
+		  }</style>
+        <script src="js/my.js">
+        </script>
+         <link rel="stylesheet" href="jquery.mobile-1.2.0.min.css"
+        />
+        
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-mobile.js"></script>
+    <!-- Put the following javascript before the closing </head> tag. -->
+
+
+<!-- Place this tag where you want both of the search box and the search results to render -->
+
+    </head>
+    
+    <body>
+       
+            <div data-role="page"  >
+           <div data-role="header" style="background:url(img/i2.png); background-repeat:no-repeat;">
+          {if $data['type']=="concours"}
+			<a href="f_concours.php" data-icon="back" >Back</a>
+            {elseif $data['type']=="stages"}
+            <a href="f_stages.php" data-icon="back" >Back</a>
+            {elseif $data['type']=="formations"}
+            <a href="f_formations.php" data-icon="back" >Back</a>
+            {else}
+            <a href="f_emplois.php" data-icon="back" >Back</a>
+            {/if}
+            <a href ="deconnexion2.php" rel="external"> Déconnexion </a>
+                      
+        
+                <div style=" text-align:center;">
+                    <img style="width: 200px; height: 90px; text-align:center;" src="img/iconfinder-logo.png">
+                </div>    
+            </div>
+            <div data-role="content" >
+         
+                
+                
+                    		<div data-role="collapsible" data-collapsed="false" data-theme="s">
+                        	
+                        <h3>
+                           {$data['titre']}
+                        </h3>
+                        <ul data-role="listview" data-divider-theme="f" data-inset="false">
+                            <li id="l">
+                            <p align="right">{$data['date_depot']}</p>
+                                {$data2['civilite_u']}.{$data2['nom_u']} {$data2['prenom_u']} a dit:<br>
+                                {$data['sujet']}
+                            </li>
+                        </ul>
+                </div>
+                {if $test==1 }
+                {foreach $data3 as $rep}
+              	<div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="false" data-theme="f">
+                        	
+                        <h3>
+                           {$rep['titre']}
+                        </h3>
+                        <ul data-role="listview" data-divider-theme="f" data-inset="false">
+                            <li id="l">
+                            <p align="right">{$rep['date_depot']}</p>
+                               {$rep['civilite_u']}. {$rep['nom_u']} {$rep['prenom_u']} a répondu:<br>
+                                {$rep['sujet']}
+                            </li>
+                        </ul>
+                </div>
+                {/foreach}
+                {/if}
+				
+                <div data-role="collapsible" data-collapsed-icon="arrow-r" data-collapsed="true" data-theme="b"  >
+                        <h3 >
+                            Répondre à ce sujet:
+                        </h3>
+<form method="post" action="r_ajout.php?id={$data['idf']}">
+                        
+                             <input name="titre" id="titre" placeholder="Titre" type="text" >
+                                <textarea id="sujet" name="sujet" placeholder="Sujet" ></textarea>
+							 </fieldset>
+                                <input type="submit" value="Ajouter" data-theme="b">
+</form>            
+                    </div>
+                
+                
+            </div>
+           
+<div  data-role="footer" data-position="fixed">
+              <div data-role="navbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="index.php" data-transition="fade" data-theme="" data-icon="home" id="ac">
+                            Accueil
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="contact.php" data-rel="dialog" data-transition="fade" data-theme="" data-icon="plus" id="ac">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.php" data-rel="dialog" data-transition="fade" data-theme="" id="ac" data-icon="info">
+                            A propos
+                        </a>
+                    </li>
+					
+                  
+					
+                   
+                   <li>
+                     
+            <a href ="profile_option.php" data-transition="fade" data-icon="grid" id="ac"> Profile </a>
+            </li>
+            
+            
+                </ul>
+            </div>
+        </div>
+</div>       
+</body>
+</html>

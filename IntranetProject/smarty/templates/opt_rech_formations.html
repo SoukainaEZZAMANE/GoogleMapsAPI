@@ -1,0 +1,128 @@
+r<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        </title>
+ <style>  
+   #ac
+	  
+	  {
+		  
+		  background:url(img/i2.jpg); background-repeat:no-repeat;}
+		  #ac:hover
+		  { background:url(img/i4.png);
+		  }</style>
+          <link rel="stylesheet" href="jquery.mobile-1.2.0.min.css"/>
+        	<link rel="stylesheet" href="css/jquery-mobile.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-mobile.js"></script>
+        <link rel="stylesheet" href="css/my.css" />
+        <link rel="stylesheet" href="css/finder.css" />
+        
+        
+        <script src="js/my.js">
+        </script>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    
+    </head>
+    
+    <body>
+         <div data-role="page" style="background:url(img/form1.png);background-repeat:no-repeat;">
+    <div data-role="header" style="background:url(img/i2.png); background-repeat:no-repeat;">
+        <a data-rel="back" data-icon="back" rel="external">Back</a>
+        {if $smarty.session.tr==1 }
+            <a href ="deconnexion.php" rel="external"> Déconnexion </a>
+                      
+            {/if}
+			 {if $smarty.session.tr==2}
+            <a href ="deconnexion2.php" rel="external"> Déconnexion </a>
+                      
+            {/if}
+       <div style=" text-align:center;">
+                    <img style="width: 200px; height: 90px; text-align:center;" src="img/iconfinder-logo.png">
+                </div>
+    </div>
+    <div data-role="content">
+        <div>
+            <p style="text-align: center; font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">
+               Chercher par:
+            </p>
+        </div>
+        <form action="formations.php" method="post" >
+          <div data-role="fieldcontain">
+           
+                <label for="ville">
+                    Ville:
+                </label>
+                <select name="ville" id="ville" data-mini="true" data-native-menu="false" >
+            <option value="e">
+                    Ville
+                </option>
+                  {foreach $return1 as $data}
+                <option value="{$data['ville_f']}" name="{$data['ville_f']}">
+                    {$data['ville_f']}
+                </option>
+                {/foreach}
+            </select>
+          </div>
+          <div data-role="fieldcontain">
+				<label for="dure" class="select">Durée:</label>
+				<select name="dure" id="dure" data-native-menu="false" data-bind="selectedOptions: currentPropertyType" >
+					<option value="e">Durée de stage</option>
+                    <option value="0">Moins 3 mois</option>
+					<option value="3">Plus de trois mois</option>
+				</select>
+			</div>
+            
+        
+        <div data-role="fieldcontain">
+            <label for="domaine">
+                Domaine:
+            </label>
+            <select name="domaine" id="domaine" data-mini="true" data-native-menu="false" >
+             	<option value="e">
+                    Domaine
+                </option>
+                    {foreach $return2 as $data}
+                <option value="{$data['secteur_f']}" name="{$data['secteur_f']}">
+                    {$data['secteur_f']}
+                </option>
+                {/foreach}
+                </select>
+        </div>
+        <input data-theme="f" value="Chercher" type="submit" >
+        </form>
+    </div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+             
+            <div data-role="navbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="index.php" data-transition="fade" data-theme="" data-icon="home" id="ac">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.php" data-rel="dialog" data-transition="fade" data-theme="" data-icon="star" id="ac">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.php" data-rel="dialog" data-transition="fade" data-theme="" data-icon="info" id="ac">
+                            A propos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       
+       
+<body>
+</body>
+</html>

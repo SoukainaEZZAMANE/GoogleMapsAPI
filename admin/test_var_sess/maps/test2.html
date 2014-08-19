@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+
+
+<head> 
+    
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+															<title>-Carte GOOGLE MAPS-</title> 
+    
+    
+    <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBhKE46McVwACQGSIW6FRYZ4TUfVxnJUq8" type="text/javascript"></script> 
+    
+    
+
+
+    
+    
+    <script type="text/javascript"> 
+    //<![CDATA[ 
+  
+    var map = null; 
+    var geocoder = null; 
+  
+    function load() { 
+      
+      if (GBrowserIsCompatible()) { 
+        map = new GMap2(document.getElementById("map")); 
+	
+	
+	
+	
+        map.setCenter(new GLatLng(48.85861640881589, 2.3459243774414062),8);
+	map.addControl(new GLargeMapControl()); 
+	map.addControl(new GMapTypeControl());
+	map.addControl(new GOverviewMapControl());  //PETITE CARTE EN BAS A DROITE !
+
+	GEvent.addListener(map, "click", function(overlay, point){
+	map.clearOverlays();
+	if (point) {
+	map.addOverlay(new GMarker(point));
+	map.panTo(point);
+	document.getElementById("mypoint").innerHTML = msg;
+	}
+	});
+	map.enableDoubleClickZoom(); 
+        geocoder = new GClientGeocoder(); 
+	var polyline = new GPolyline([
+new GLatLng(48.8581, 2.2944),
+new GLatLng(48.8681, 2.2844)
+], "#FF6600", 10);
+map.addOverlay(polyline);
+
+
+      } 
+    } 
+  
+    function afficherAdresse(address) { 
+      if (geocoder) { 
+        geocoder.getLatLng( 
+          address, 
+          function(point) { 
+            if (!point) { 
+              alert(address + " introuvable"); 
+            } else { 
+              map.setCenter(point, 13); 
+              var marker = new GMarker(point); 
+              map.addOverlay(marker); 
+              marker.openInfoWindowHtml(address); 
+            } 
+          } 
+        ); 
+      } 
+    } 
+    //]]> 
+    </script> 
+  
+  
+  </head> 
+  
+  
+  <body onload="load()" onunload="GUnload()" bgcolor="royalblue"> 
+  
+  
+    <form action="#" onsubmit="afficherAdresse(this.address.value); return false"> 
+      <div id="map" style="width:1225px; height:775px;"></div> 
+      
+  
+      
+      
+      
+      <p> 
+        <input type="text" size="88" name="address" value="70 avenue Pierre Grenier, Boulogne-Billancourt, France" /> 
+        <input type="submit" value="Go!" /> 
+      </p> 
+    </form> 
+    
+    
+    
+  </body> 
+  
+  
+</html> 

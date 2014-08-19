@@ -1,0 +1,106 @@
+<html>
+<head>
+ <link rel="stylesheet" href="pop.css">
+ <script  src="jquery.js"></script>
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/iphone-check.css">
+  <!---jQuery Files-->
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="js/jquery-ui-1.8.17.min.js"></script>
+  <script src="js/styler.js"></script>
+  <script src="js/jquery.tipTip.js"></script>
+  <script src="js/colorpicker.js"></script>
+  <script src="js/sticky.full.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/flot/jquery.flot.min.js"></script>
+  <script src="js/flot/jquery.flot.resize.min.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/forms/fileinput.js"></script>
+  <script src="js/forms/iphone-check.js"></script>
+
+<script>
+$(document).ready(function() {
+	
+//Lorsque vous cliquez sur un lien de la classe poplight et que le href commence par #
+$('a.poplight[href^=#]').click(function() {
+	var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
+	var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
+
+	//Récupérer les variables depuis le lien
+	var query= popURL.split('?');
+	var dim= query[1].split('&');
+	var popWidth = dim[0].split('=')[1]; //La première valeur du lien
+
+	//Faire apparaitre la pop-up et ajouter le bouton de fermeture
+	$('#' + popID).fadeIn().css({
+		'width': Number(popWidth)
+	})
+	.prepend('');
+
+	//Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
+	var popMargTop = ($('#' + popID).height() + 80) / 2;
+	var popMargLeft = ($('#' + popID).width() + 80) / 2;
+
+	//On affecte le margin
+	$('#' + popID).css({
+		'margin-top' : -popMargTop,
+		'margin-left' : -popMargLeft
+	});
+
+	//Effet fade-in du fond opaque
+	$('body').append(''); //Ajout du fond opaque noir
+	//Apparition du fond - .css({'filter' : 'alpha(opacity=80)'}) pour corriger les bogues de IE
+	$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn();
+
+	return false;
+});
+
+//Fermeture de la pop-up et du fond
+$('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
+	$('#fade , .popup_block').fadeOut(function() {
+		$('#fade, a.close').remove();  //...ils disparaissent ensemble
+	});
+	return false;
+});
+
+});
+</script>
+
+</head>
+<body>
+
+<a href="#?w=500" rel="popup_name" class="poplight">En savoir plus</a>
+<div id="popup_name" class="popup_block">
+<div class="box-head"><h2>Simple Inputs</h2></div>
+        <div class="box-content">
+           <div class="form-row">
+            <p class="form-label">Text input</p>
+            <div class="form-item"><input type="text" /></div>
+           </div>
+           <div class="form-row">
+            <p class="form-label">Password input</p>
+            <div class="form-item"><input type="password" /></div>
+           </div>
+           <div class="form-row">
+            <p class="form-label">Input with Placeholder</p>
+            <div class="form-item"><input type="text" placeholder="Placeholder Text" /></div>
+           </div>
+           <div class="form-row">
+            <p class="form-label">Read-only field</p>
+            <div class="form-item"><input type="text" value="This field cannot be changed" readonly /></div>
+           </div>
+           <div class="form-row">
+            <p class="form-label">Disabled field</p>
+            <div class="form-item"><input type="text" disabled="disabled" /></div>
+           </div>
+           <div class="form-row">
+            <p class="form-label">Iphone style checkbox</p>
+            <input checked type="checkbox" id="iphone-check" />
+           </div>
+          <div class="clear"></div>
+        </div>
+</div>
+
+</body>
+</html>

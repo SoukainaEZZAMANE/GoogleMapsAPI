@@ -1,0 +1,179 @@
+<?php /* Smarty version Smarty-3.1.12, created on 2013-01-02 12:59:24
+         compiled from "smarty\templates\ajout_emploi.html" */ ?>
+<?php /*%%SmartyHeaderCode:2065250d561f357e5a8-21034271%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '0c8e2b15c3bdd9b3c7d9a35885a73b893d82d92d' => 
+    array (
+      0 => 'smarty\\templates\\ajout_emploi.html',
+      1 => 1357131561,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2065250d561f357e5a8-21034271',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50d561f35cf8f0_46457760',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_50d561f35cf8f0_46457760')) {function content_50d561f35cf8f0_46457760($_smarty_tpl) {?><!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ <style>  
+   #ac
+	  
+	  {
+		  
+		  background:url(img/i2.jpg); background-repeat:no-repeat;}
+		  #ac:hover
+		  { background:url(img/i4.png);
+		  }</style>
+   <link rel="stylesheet" href="jquery.mobile-1.2.0.min.css"/>
+    <link rel="stylesheet" href="css/jquery-mobile.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-mobile.js"></script>
+     <link rel="stylesheet" href="css/my.css" />
+     <script src="js/verification/ver_emp.js">
+        </script>
+        <script src="js/my.js">
+        </script>
+    </head>
+    
+    <body>
+            <div data-role="page" style="background:url(img/form1.png);background-repeat:no-repeat;" >
+            <div data-role="header" style="background:url(img/i2.png); background-repeat:no-repeat;">
+	   <a data-rel="back" data-icon="back" >Back</a>
+                        
+            <a href ="deconnexion.php" rel="external"> Déconnexion </a>
+                      
+           
+	   
+              <div style=" text-align:center;">
+                    <img style="width: 200px; height: 90px; text-align:center;" src="img/iconfinder-logo.png">
+                </div>
+            </div>
+<div data-role="content">
+
+<p align="center" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; " >Saisire les informations concernant votre annonce d'emploi:</p>
+
+<form  id="form_emp" method="POST"   enctype="multipart/form-data" data-transition="flow" >
+
+<div data-role="fieldcontain">
+			<label for="entreprise_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Nom de l'entreprise:</label>
+			<input type="text"  name="entreprise_e" id="entreprise_e" data-mini="false" placeholder=""/>
+</div>
+
+<div data-role="fieldcontain">
+			<label for="avatar" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Logo de l'entreprise:</label>
+			
+			<input type="file" id="image_e" name="avatar">
+					<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+</div>
+<div data-role="fieldcontain">
+			   
+			    	<label for="desc_entr_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Déscription de l'entreprise:</label>
+			         	<textarea name="desc_entr_e" id="desc_entr_e" value=""  data-mini="false" placeholder="" width="1200" ></textarea>
+</div>
+
+			<div data-role="fieldcontain">
+	         <label for="ville_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Ville:</label>
+	        <input type="text" name="ville_e" id="ville_e" value=""  data-mini="false" placeholder="" width="1200" />
+			</div>
+             
+  <div data-role="fieldcontain">
+			   
+			    	<label for="lieu_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Adresse:</label>
+			         	<textarea id="lieu_e" name="lieu_e" placeholder=""></textarea>
+</div>
+<div data-role="fieldcontain">
+			   
+			    	<label for="tel_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Téléphone:</label>
+			         	<input type="text" id="tel_e" name="tel_e" placeholder="">
+</div>
+	
+             
+			 <div data-role="fieldcontain">
+			   
+			    	<label for="email_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Email:</label>
+			         	<input type="text" name="email_e" id="email_e" data-mini="false" placeholder="" width="1200" />
+</div>
+
+<div data-role="fieldcontain">
+			   
+			    	<label for="site_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Site web:</label>
+			         	<input type="text" name="site_e" id="site_e" data-mini="false" placeholder="" width="1200" />
+</div>
+<div data-role="fieldcontain">
+			   
+			    	<label for="nbr_poste_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Nombre de postes :</label>
+			         	<input type="number" name="nbr_poste_e" id="nbr_poste_e" data-mini="false" placeholder="" />
+</div>
+
+           
+             <div data-role="fieldcontain">
+			   
+			    	<label for="niveau_e" style="font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Niveau demandé:</label>
+			         	<input type="text" name="niveau_e" id="niveau_e" data-mini="false" placeholder="" width="1200" />
+</div>
+
+<div data-role="fieldcontain">
+			   
+			    	<label for="secteur_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Sécteur de travail de l'entreprise:</label>
+			         	<input type="text" name="secteur_e" id="secteur_e" data-mini="false" placeholder="" width="1200" />
+</div>
+
+ <div data-role="fieldcontain">
+			   
+			    	<label for="type_contrat_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center; ">Type de contrat: </label>
+			         	<input type ="text" id="type_contrat_e" name="type_contrat_e" placeholder="">
+</div>
+
+
+
+<div data-role="fieldcontain">
+			   
+			    	<label for="renumeration_e" style=" font-size:25px; color:black; font-family: times new roman,times;" data-mce-style="text-align: center;">Salaire:</label>
+			         	<input type="text" name="renumeration_e" id="renumeration_e" data-mini="false" placeholder="" width="1200" />
+</div>
+
+   <input type="button" id="sube" name="sube" data-theme="b" data-mini="false"  value="Ajouter">	
+	<input type="reset" id="an" name="an" data-theme="d" data-mini="false" value="Annuler">
+
+
+</form>
+</div>
+
+                    
+<div data-theme="a" data-role="footer" data-position="fixed">
+               
+           
+            <div data-role="navbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="index.php" data-transition="fade" data-theme="" data-icon="home" id="ac">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                       <a href="contact.php" data-rel="dialog"  data-theme="" data-icon="star"  data-transition="fade" id="ac" >
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" data-transition="fade" data-rel="dialog" data-theme="" data-icon="info" id="ac">
+                            A propos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
+</body>
+</html>
+<?php }} ?>

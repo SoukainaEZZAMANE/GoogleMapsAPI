@@ -1,0 +1,54 @@
+<?php
+// inclusion de la bibliotheque
+include("google-api.php");
+
+// la cle (n'oubliez pas de la remplacer par votre cle)
+$cle = '01234567890123456789012345678901';
+
+// le nb de pages est bloque a 10
+$nb_par_page = 10;
+
+// notre requete (mettez ce que vous voulez !)
+$q = "site:www.votresite.com a propos de moi";
+
+// on cree un objet pour utiliser la Google API
+$google = new GoogleApiSearch;
+
+// par defaut on recupere les premiers resultats, mais on peut faire une boucle qui fait varier $start pour recuperer les 1000 premiers resultats
+$start = 0;
+
+// lancement de la requete
+$result = $google->doGoogleSearch($cle, $q, $start);
+
+// on verifie le resultat de la requete
+if (!$result)
+{
+  // la requete n'a pas pu fonctionner
+ echo "Désolé... La requête a échoué.Réessayez d'ici quelques heures...";
+}
+else
+{
+ // la requete a reussi, on regarde maintenant le nb de resultats
+
+ // nombre estime de resultats
+ $nb_res = $result['estimatedTotalResultsCount'];
+
+ if ( $nb_res == 0 )
+ {
+  // aucun resultat
+  echo "Aucun résultat.";
+ }
+
+ else
+ {
+  // on affiche les resultats
+  foreach ($result['resultElements'] as $resultat)
+  {
+  // URL, titre et description
+  echo $resultat["URL"]."<br>";
+  echo "title :<b>".$resultat["title"]."</b><br>";
+  echo "snippet :".$resultat["snippet"]."<br><br>"; 
+  }
+ }
+}
+?>

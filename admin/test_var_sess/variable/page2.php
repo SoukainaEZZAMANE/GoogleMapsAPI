@@ -1,0 +1,9 @@
+<?php
+require_once('config.php');
+session_start();
+unset($_SESSION['name']);
+if(session_destroy())
+{
+$smarty->display('index.html'); 
+}
+?>
